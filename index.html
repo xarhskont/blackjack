@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/src/script.js"></script>
+        <link href="/src/output.css" rel="stylesheet">
+        <title>Blackjack</title>
+    </head>
+    <body class="bg-gray-700">
+        <p class="font-sans font-medium text-white text-3xl ml-1 p-1" id="dealer">Dealer's Hand: </p>
+        <p class="font-sans font-medium text-white text-lg ml-1 p-1" id="dealerH">(-)</p>
+        <p class="font-sans font-medium text-white text-3xl ml-1 p-1" id="player">Your Hand: </p>
+        <p class="font-sans font-medium text-white text-lg ml-1 p-1" id="playerH">(-)</p>
+        <button class="bg-blue-500 ml-2 p-1 rounded-xl w-25 h-10 font-sans font-medium text-lg text-white" id="hit" onclick="hit()">Hit</button>
+        <button class="bg-blue-500 ml-2 p-1 rounded-xl w-25 h-10 font-sans font-medium text-lg text-white"  id="stand" onclick="stand()">Stand</button>
+        <button class="bg-blue-500 ml-2 p-1 rounded-xl w-25 h-10 font-sans font-medium text-lg text-white"  id="split">Split</button>
+        <button class="bg-blue-500 ml-2 p-1 rounded-xl w-25 h-10 font-sans font-medium text-lg text-white"  id="double">Double</button>
+        <button class="bg-blue-500 ml-2 p-1 rounded-xl w-25 h-10 font-sans font-medium text-lg text-white" id="bet" onclick="bet()">Bet 50€</button>
+        <h2 class="font-sans font-medium text-white text-3xl ml-1 p-2" id="balance">Balance:</h2>
+        <h2 class="font-sans font-medium text-white text-3xl ml-1 p-2" id="message">Message</h2>
+    </body>
+</html> 
