@@ -33,7 +33,7 @@ window.onload = function() { //When page loads
     secondH = document.getElementById("secondH");
     reshuffle = document.getElementById("reshuffle");
     updateBalance();
-    for(let i=0;i<53;i++) {
+    for(let i=0;i<52;i++) {
         var image = new Image();
         image.src = `./cards/${i}.png`;
     }
