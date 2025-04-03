@@ -35,10 +35,10 @@ window.onload = function() { //When page loads
     updateBalance();
     for(let i=0;i<52;i++) {
         var image = new Image();
-        image.src = `./cards/${i}.png`;
+        image.src = `/cards/${i}.png`;
     }
 }
-    
+
 function updateBalance() { //Updates balance
     const balanceValue = document.getElementById("balance");
     balanceValue.innerHTML = "Balance: " + balance + "€";
@@ -80,7 +80,7 @@ function selectCard(hand) {
     }
     const cardContainer = document.getElementById("card-container-"+hand);
     let img = document.createElement("img");
-    img.src = `./cards/${suit*13+card}.png`;
+    img.src = `/cards/${suit*13+card}.png`;
     img.classList.add("w-21", "h-27");
     cardContainer.appendChild(img);
     return card;
@@ -173,7 +173,7 @@ function stand() { //Stand
     doubleButton.style.display = "none";
     hitSplitButton.style.display = "none";
     standSplitButton.style.display = "none";
-    if(playerHasAce) {
+    if(playerHasAce && Number(player+10)<=21) {
         player+=10;
         playerHasAce = false;
         playerH.innerHTML = "("+player+")";
@@ -188,10 +188,10 @@ function stand() { //Stand
         else {
             let handsWon = 0;
             let handsLost = 0;
-            if(player>dealer || dealer>21) handsWon++;
-            else if (player<dealer && dealer<=21) handsLost++;
-            if(second>dealer || dealer>21) handsWon++;
-            else if (second<dealer && dealer<=21) handsLost++;
+            if((player>dealer && player<=21) || dealer>21) handsWon++;
+            else if ((player<dealer && dealer<=21) || player>21) handsLost++;
+            if((second>dealer && second<=21) || dealer>21) handsWon++;
+            else if ((second<dealer && dealer<=21) || second>21) handsLost++;
             splitWin(handsWon,handsLost);
         }
     }
@@ -262,14 +262,14 @@ function standSplit() { //Stand on Split
         splitHand=2;
         hitSplitButton.innerHTML = "Hit 2nd";
         standSplitButton.innerHTML = "Stand 2nd";
-        if(playerHasAce) {
+        if(playerHasAce && Number(player+10)<=21) {
             player+=10;
             playerHasAce = false;
             playerH.innerHTML = "("+player+")";
         }
     }
     else {
-        if(secondHasAce) {
+        if(secondHasAce && Number(second+10)<=21) {
             second+=10;
             secondHasAce = false;
             secondH.innerHTML = "("+second+")";
