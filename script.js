@@ -79,6 +79,7 @@ function selectCard(hand) {
     img.src = `./cards/${suit*13+card}.png`;
     img.classList.add("w-21", "h-27");
     cardContainer.appendChild(img);
+    await img.decode();
     return card;
 }
 
