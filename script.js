@@ -33,8 +33,12 @@ window.onload = function() { //When page loads
     secondH = document.getElementById("secondH");
     reshuffle = document.getElementById("reshuffle");
     updateBalance();
+    for(let i=0;i<53;i++) {
+        var image = new Image();
+        image.src = `./cards/${i}.png`;
+    }
 }
-
+    
 function updateBalance() { //Updates balance
     const balanceValue = document.getElementById("balance");
     balanceValue.innerHTML = "Balance: " + balance + "€";
@@ -78,9 +82,7 @@ function selectCard(hand) {
     let img = document.createElement("img");
     img.src = `./cards/${suit*13+card}.png`;
     img.classList.add("w-21", "h-27");
-    img.onload = function() {
-        cardContainer.appendChild(img);
-    };
+    cardContainer.appendChild(img);
     return card;
 }
 
