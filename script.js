@@ -35,7 +35,7 @@ window.onload = function() { //When page loads
     updateBalance();
     for(let i=0;i<52;i++) {
         var image = new Image();
-        image.src = `/cards/${i}.png`;
+        image.src = `./cards/${i}.png`;
     }
 }
 
@@ -80,7 +80,7 @@ function selectCard(hand) {
     }
     const cardContainer = document.getElementById("card-container-"+hand);
     let img = document.createElement("img");
-    img.src = `/cards/${suit*13+card}.png`;
+    img.src = `./cards/${suit*13+card}.png`;
     img.classList.add("w-21", "h-27");
     cardContainer.appendChild(img);
     return card;
