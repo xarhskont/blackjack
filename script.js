@@ -35,7 +35,7 @@ window.onload = function() { //When page loads
     updateBalance();
     for(let i=0;i<52;i++) {
         var image = new Image();
-        image.src = `./cards/${i}.png`;
+        image.src = `/cards/${i}.png`;
     }
 }
 
@@ -80,7 +80,7 @@ function selectCard(hand) {
     }
     const cardContainer = document.getElementById("card-container-"+hand);
     let img = document.createElement("img");
-    img.src = `./cards/${suit*13+card}.png`;
+    img.src = `/cards/${suit*13+card}.png`;
     img.classList.add("w-21", "h-27");
     cardContainer.appendChild(img);
     return card;
@@ -188,10 +188,22 @@ function stand() { //Stand
         else {
             let handsWon = 0;
             let handsLost = 0;
-            if((player>dealer && player<=21) || dealer>21) handsWon++;
-            else if ((player<dealer && dealer<=21) || player>21) handsLost++;
-            if((second>dealer && second<=21) || dealer>21) handsWon++;
-            else if ((second<dealer && dealer<=21) || second>21) handsLost++;
+            if(player>21) handsLost++;
+            else {
+                if(dealer>21) handsWon++;
+                else {
+                    if(player>dealer) handsWon++;
+                    else if(dealer>player) handsLost++;
+                }
+            }
+            if(second>21) handsLost++;
+            else {
+                if(dealer>21) handsWon++;
+                else {
+                    if(second>dealer) handsWon++;
+                    else if(dealer>second) handsLost++;
+                }
+            }
             splitWin(handsWon,handsLost);
         }
     }
